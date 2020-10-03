@@ -50,6 +50,11 @@ let arr0=[1,2,3,4]
 let arr1=['1,2,3,4']
 let arr2=['1,2,3,4',0]
 
+//元祖 tuple
+
+arr2=[1,2,3,4]
+const  arr3:[string,string,number]=['a','b',1];
+
 
 
 let num3:number|string=123
