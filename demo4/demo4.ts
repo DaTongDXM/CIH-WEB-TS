@@ -4,6 +4,8 @@ interface LandInfo {
   name: string;
   //可选
   //只读
+  //[propName: string]: any;
+  getInfo(): string;
 }
 
 function getLandInfo(info: { name: string }): void {
@@ -16,6 +18,52 @@ function setLandName(info: { name: string }, name: string) {
 
 const landinfo = {
   name: "TD001",
+  price: 3000,
 };
 getLandInfo(landinfo);
+//注意 字面量形式
+// getLandInfo({
+//   name: "TD001",
+//   price: 3000,
+// });
 setLandName(landinfo, "TD002");
+
+const landInfo = {
+  name: "地块02",
+  getInfo() {
+    return this.name;
+  },
+};
+function getLandInfos(info: LandInfo): void {
+  console.log(info.getInfo());
+}
+
+//类应用接口 要匹配接口里面的属性和方法
+class house implements LandInfo {
+  name = "万达";
+  getInfo() {
+    return this.name;
+  }
+}
+
+//接口之间的继承
+interface LouPan extends LandInfo {
+  type: string;
+  getType(): void;
+}
+
+const loupanInfo = {
+  name: "万达",
+  type: "别墅",
+  getType() {
+    console.log(`${this.name}的类型是${this.type}`);
+  },
+  getInfo() {
+    return this.name;
+  },
+};
+
+function getLouPanInfo(loupan: LouPan): void {
+  loupan.getType();
+}
+getLouPanInfo(loupanInfo);
