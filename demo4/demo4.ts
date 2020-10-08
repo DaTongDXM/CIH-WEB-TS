@@ -1,5 +1,5 @@
 //通用的类型集合
-//interface和type的区别是，type可以直接表示基础类型，但是interface只能修饰对象
+//interface和type的区别是，type可以直接表示基础类型，但是interface只能修饰对象，尽量使用interface表示类型
 //interface不会变成js代码
 interface LandInfo {
   name: string;
@@ -77,3 +77,12 @@ interface GetInfo {
 let getInfo: GetInfo = (id) => {
   return id;
 };
+
+//...............................................................................
+interface ClockConstructor {
+  new (hour: number, minute: number): void;
+}
+class Clock implements ClockConstructor {
+  currentTime: Date;
+  constructor(h: number, m: number) {}
+}
