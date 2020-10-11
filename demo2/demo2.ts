@@ -13,12 +13,32 @@ count=['a','b','c']
 count='abc'
 
 //联合类型在使用得当时候，只能访问到所属联合类型的共有的属性和方法
-function(count:string[]|string){
+function getLength(count:string[]|string){
     count.length;
     // count.join()
 }
 
 /*对象类型*/
+//ENUM  默认从0基数，可以手动赋值，后边没有被赋值的从赋值的属性递增
+enum ZXStatus{
+    JZX,BJZ,MP
+}
+function getZXStatus(statu){
+    switch(statu){
+        case ZXStatus.JZX:return '精装修'
+        break;
+        case ZXStatus.BJZ:return '半精装'
+        break;
+        default:
+            return '毛坯';
+            break;
+    }
+}
+console.log(getZXStatus(0))
+
+//枚举反推
+console.log(ZXStatus[1])
+
 //Array
 const list1:number[]=[1,2,3]
 const list2:Array<string>=['house,land']
@@ -37,6 +57,12 @@ class House{}
 const house:House=new House()
 
 
+
+//元祖 tuple
+
+
+const  arr3:[string,string,number]=['a','b',1];
+
 //类型推断和注解
 
 const num0:number=123
@@ -49,11 +75,9 @@ let str1='123'
 let arr0=[1,2,3,4]
 let arr1=['1,2,3,4']
 let arr2=['1,2,3,4',0]
-
-//元祖 tuple
-
 arr2=[1,2,3,4]
-const  arr3:[string,string,number]=['a','b',1];
+
+
 
 
 
@@ -68,4 +92,12 @@ function getData(num0,num1){
 //     price:number;
 // }
 const houseInfo="{'name':'万科',price:10000}"
-const _houseInfo =JSON.parse(houseInfo)
+// const _houseInfo =JSON.parse(houseInfo)
+
+
+//类型断言
+
+const str:any='asdfg';
+const strLength=(<string>str).length
+const strLen=(str as string).length
+console.log(strLen)

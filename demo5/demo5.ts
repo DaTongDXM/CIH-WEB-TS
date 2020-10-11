@@ -35,15 +35,12 @@ const land=new Land(1000)
 // }
 
 // class LvDi extends House{
-//     //若父类含有constructor函数，则子类必须调用super(),super()会执行父类的构造函数
-  
 //     getHouseType(name:string='绿地中心'){
 //        super.getHouseType(name)
 //     }
 // }
 
 // class BaoLi extends House{
-  
 //     //重写
 //     getHouseType(name:string){
 //         console.log(`${name}的房屋类型没有${this._type}`)
