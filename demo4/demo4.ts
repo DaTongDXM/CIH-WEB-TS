@@ -5,11 +5,11 @@ interface LandInfo {
   name: string;
   //可选
   //只读
-  //[propName: string]: any;
-  getInfo(): string;
+  [propName: string]: any;
+  //getInfo(): string;
 }
 
-function getLandInfo(info: { name: string }): void {
+function getLandInfo(info: LandInfo): void {
   console.log(info.name);
 }
 
@@ -21,12 +21,12 @@ const landinfo = {
   name: "TD001",
   price: 3000,
 };
-getLandInfo(landinfo);
+///getLandInfo(landinfo);
 //注意 字面量形式
-// getLandInfo({
-//   name: "TD001",
-//   price: 3000,
-// });
+getLandInfo({
+  name: "TD001",
+  price: 3000,
+});
 setLandName(landinfo, "TD002");
 
 const landInfo = {

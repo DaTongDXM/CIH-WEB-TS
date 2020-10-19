@@ -1,0 +1,3 @@
+interface Persion{
+    name:string
+}

@@ -52,6 +52,13 @@ const land:{name:string,area:number}={
 const fun:(str:string)=>number=(str)=>{
     return Number(str)
 }
+
+let iFunType:(count:number)=>number;
+function sum(count:number):number{
+    return ++count
+}
+iFunType=sum
+
 //Class
 class House{}
 const house:House=new House()
@@ -101,3 +108,5 @@ const str:any='asdfg';
 const strLength=(<string>str).length
 const strLen=(str as string).length
 console.log(strLen)
+
+export {}
